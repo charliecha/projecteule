@@ -20,7 +20,7 @@ public class Problem37 {
                 char[] cs = Integer.toString(i).toCharArray();
                 boolean truncatablePrime = true;
                 int value = 0;
-                for (int j = 0; j < cs.length; j++) {
+                for (int j = 0; j < cs.length - 1; j++) {
                     value = 10 * value + (cs[j] - '0');
                     if (!isPrime(value)) {
                         truncatablePrime = false;
@@ -29,7 +29,7 @@ public class Problem37 {
                 }
                 if (truncatablePrime) {
                     value = 0;
-                    for (int j = cs.length - 1; j >= 0; j--) {
+                    for (int j = cs.length - 1; j > 0; j--) {
                         value = value + (cs[j] - '0') * pow(10, cs.length - 1 - j);
                         if (!isPrime(value)) {
                             truncatablePrime = false;

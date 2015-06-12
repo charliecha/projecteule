@@ -11,6 +11,7 @@ public class Problem49 {
     }
 
     final int N = 10000;
+
     final int[] primes = new int[N];
 
     private void testPrimePermutations() {

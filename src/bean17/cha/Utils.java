@@ -64,4 +64,18 @@ public class Utils {
 		}
 		return array;
 	}
+	
+	public static boolean isPrime(int n) {
+		if (2 > n) {
+			return false;
+		}
+		boolean isPrime = true;
+		for (int i = 2; i * i <= n; i++) {
+			if (0 == n % i) {
+				isPrime = false;
+				break;
+			}
+		}
+		return isPrime;
+	}
 }

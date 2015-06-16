@@ -28,7 +28,6 @@ public class Problem53 {
     final int N = 101;
     final BigInteger[] arrangements = new BigInteger[N];
     final BigInteger TARGET = BigInteger.valueOf(1000000);
-
     /**
      * @param args arguments
      */

@@ -16,10 +16,10 @@ public class Problem52 {
      * @param args arguments
      */
     public static void main(String[] args) {
-        new Problem52().testConsecutivePrimeSum();
+        new Problem52().testPermutedMultiples();
     }
 
-    private void testConsecutivePrimeSum() {
+    private void testPermutedMultiples() {
         long start = System.currentTimeMillis();
 
         for (int i = 1; ; i++) {

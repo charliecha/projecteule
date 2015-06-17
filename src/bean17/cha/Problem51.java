@@ -20,7 +20,6 @@ public class Problem51 {
 	final int THUNDRED_THOUSAND = TEN_THOUSAND * 10;
 	final int MILLION = THUNDRED_THOUSAND * 10;
 	final int TARGET = 8;
-
 	/**
 	 * @param args
 	 *            arguments

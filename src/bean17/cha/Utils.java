@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utils {
+	/**
+	 * read whole file
+	 * @param file
+	 * @return
+	 */
 	public static String readString(File file) {
 		StringBuilder builder = new StringBuilder();
 		BufferedReader reader = null;
@@ -34,6 +39,11 @@ public class Utils {
 		return builder.toString();
 	}
 
+	/**
+	 * read lines
+	 * @param file
+	 * @return
+	 */
 	public static String[] readStringArray(File file) {
 		List<String> list = new ArrayList<String>();
 		BufferedReader reader = null;
@@ -65,6 +75,11 @@ public class Utils {
 		return array;
 	}
 	
+	/**
+	 * is n prime?
+	 * @param n
+	 * @return
+	 */
 	public static boolean isPrime(int n) {
 		if (2 > n) {
 			return false;

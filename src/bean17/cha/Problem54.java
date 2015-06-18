@@ -48,6 +48,7 @@ public class Problem54 {
 	 *            arguments
 	 */
 	public static void main(String[] args) {
+		
 		new Problem54().testPokerHands();
 	}
 

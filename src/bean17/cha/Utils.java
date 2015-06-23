@@ -11,15 +11,15 @@ import java.util.List;
 public class Utils {
 	/**
 	 * read whole file
-	 * @param file
-	 * @return
+	 * @param file file
+	 * @return file content
 	 */
 	public static String readString(File file) {
 		StringBuilder builder = new StringBuilder();
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
-			String line = null;
+			String line;
 			while (null != (line = reader.readLine())) {
 				builder.append(line.trim());
 			}
@@ -41,15 +41,15 @@ public class Utils {
 
 	/**
 	 * read lines
-	 * @param file
-	 * @return
+	 * @param file file
+	 * @return contents
 	 */
 	public static String[] readStringArray(File file) {
 		List<String> list = new ArrayList<String>();
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
-			String line = null;
+			String line;
 			while (null != (line = reader.readLine())) {
 				list.add(line.trim());
 			}
@@ -77,10 +77,10 @@ public class Utils {
 	
 	/**
 	 * is n prime?
-	 * @param n
-	 * @return
+	 * @param n int value
+	 * @return is prime?
 	 */
-	public static boolean isPrime(int n) {
+	public static boolean isPrime(long n) {
 		if (2 > n) {
 			return false;
 		}
@@ -93,5 +93,18 @@ public class Utils {
 			}
 		}
 		return isPrime;
+	}
+
+	/**
+	 * next prime after current
+	 * @param current current value
+	 * @return next prime
+	 */
+	public static long nextPrime(long current) {
+		long next = current + 1;
+		while (!Utils.isPrime(next)) {
+			next++;
+		}
+		return next;
 	}
 }

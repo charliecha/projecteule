@@ -1,10 +1,5 @@
 package bean17.cha;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  *Sum square difference
  Problem 6
@@ -19,10 +14,10 @@ import java.util.Map;
  Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
  * @author bean17.cha@gmail.com
  */
-public class Problem6 {
+public class Problem06 {
 
     public static void main(String[] args) {
-        new Problem6().sumSquareDifference();
+        new Problem06().sumSquareDifference();
     }
 
 

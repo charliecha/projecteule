@@ -30,19 +30,19 @@ import java.io.File;
  Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
  * @author bean17.cha@gmail.com
  */
-public class Problem8 {
+public class Problem08 {
 
 	/**
 	 * @param args arguments
 	 */
 	public static void main(String[] args) {
-		new Problem8().largestProduct();
+		new Problem08().largestProduct();
 	}
 
 	private void largestProduct(){
 		long start = System.currentTimeMillis();
 		
-		File file = new File("files/Problem8.txt");
+		File file = new File("files/Problem08.txt");
 		String source = Utils.readString(file);
 		
 		int length = source.length();

@@ -1,7 +1,5 @@
 package bean17.cha;
 
-import java.io.File;
-
 /**
  Special Pythagorean triplet
  Problem 9
@@ -14,13 +12,13 @@ import java.io.File;
  Find the product abc.
  * @author bean17.cha@gmail.com
  */
-public class Problem9 {
+public class Problem09 {
 	final int N = 1000;
 	/**
 	 * @param args arguments
 	 */
 	public static void main(String[] args) {
-		new Problem9().specialPythagoreanTriplet();
+		new Problem09().specialPythagoreanTriplet();
 	}
 
 	private void specialPythagoreanTriplet(){

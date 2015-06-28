@@ -1,8 +1,6 @@
 package bean17.cha;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
 
 /**
@@ -13,11 +11,11 @@ import java.util.List;
  What is the largest prime factor of the number 600851475143 ?
  * @author  bean17.cha@gmail.com
  */
-public class Problem3 {
+public class Problem03 {
     final long N = 600851475143L;
 
     public static void main(String[] args) {
-        new Problem3().largestPrimeFactor();
+        new Problem03().largestPrimeFactor();
     }
 
     protected void largestPrimeFactor() {

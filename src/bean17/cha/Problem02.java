@@ -10,11 +10,11 @@ package bean17.cha;
  By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
  * @author  bean17.cha@gmail.com
  */
-public class Problem2 {
+public class Problem02 {
     final int max = 4000000;
 
     public static void main(String[] args) {
-        new Problem2().evenFibonacciNumbers();
+        new Problem02().evenFibonacciNumbers();
     }
 
     protected void evenFibonacciNumbers() {

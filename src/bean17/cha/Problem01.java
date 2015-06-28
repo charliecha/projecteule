@@ -10,10 +10,10 @@ package bean17.cha;
  What is the largest prime factor of the number 600851475143 ?
  * @author  bean17.cha@gmail.com
  */
-public class Problem1 {
+public class Problem01 {
 
     public static void main(String[] args) {
-        new Problem1().multiplesOf3And5();
+        new Problem01().multiplesOf3And5();
     }
 
     protected void multiplesOf3And5() {

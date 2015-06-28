@@ -8,11 +8,11 @@ package bean17.cha;
  Find the largest palindrome made from the product of two 3-digit numbers.
  * @author  bean17.cha@gmail.com
  */
-public class Problem4 {
+public class Problem04 {
     final long N = 600851475143L;
 
     public static void main(String[] args) {
-        new Problem4().largestPalindromeProduct();
+        new Problem04().largestPalindromeProduct();
     }
 
     protected void largestPalindromeProduct() {

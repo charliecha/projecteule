@@ -1,8 +1,6 @@
 package bean17.cha;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,10 +11,10 @@ import java.util.Map;
  What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
  * @author  bean17.cha@gmail.com
  */
-public class Problem5 {
+public class Problem05 {
 
     public static void main(String[] args) {
-        new Problem5().smallestMultiple();
+        new Problem05().smallestMultiple();
     }
 
     /**

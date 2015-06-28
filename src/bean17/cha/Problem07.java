@@ -1,9 +1,7 @@
 package bean17.cha;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 10001st prime
@@ -13,10 +11,10 @@ import java.util.Map;
  What is the 10 001st prime number?
  * @author bean17.cha@gmail.com
  */
-public class Problem7 {
+public class Problem07 {
 
     public static void main(String[] args) {
-        new Problem7().primeFactor10001st();
+        new Problem07().primeFactor10001st();
     }
 
     /**

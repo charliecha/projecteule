@@ -107,4 +107,23 @@ public class Utils {
 		}
 		return next;
 	}
+
+	/**
+	 * sqrt of i
+	 * @param i current value
+	 * @return sqrt of i
+	 */
+	public static long sqrt(long i) {
+		return (long) Math.sqrt(i);
+	}
+
+	/**
+	 * is i a square?
+	 * @param i current value
+	 * @return true: i is a square
+	 */
+	public static boolean isSqrt(long i) {
+		long sqrt = sqrt(i);
+		return sqrt * sqrt == i;
+	}
 }

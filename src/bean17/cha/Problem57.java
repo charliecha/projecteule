@@ -6,7 +6,7 @@ import java.math.BigInteger;
  * Square root convergents Problem 57 It is possible to show that the square
  * root of two can be expressed as an infinite continued fraction.
  * 
- * ¡Ì 2 = 1 + 1/(2 + 1/(2 + 1/(2 + ... ))) = 1.414213...
+ * ï¿½ï¿½ 2 = 1 + 1/(2 + 1/(2 + 1/(2 + ... ))) = 1.414213...
  * 
  * By expanding this for the first four iterations, we get:
  * 
@@ -67,43 +67,5 @@ public class Problem57 {
 			new1 = 1 + (n - 1) / (1 + old);
 		}
 		return new1;
-	}
-
-	class Fraction {
-		public Fraction(BigInteger numerator, BigInteger denominator) {
-			super();
-			this.numerator = numerator;
-			this.denominator = denominator;
-		}
-
-		BigInteger numerator;
-		BigInteger denominator;
-
-		Fraction add(int n) {
-			// numerator += denominator * n;
-			numerator = numerator.add(denominator.multiply(BigInteger
-					.valueOf(n)));
-			return this;
-		}
-
-		Fraction mutiply(int n) {
-			// numerator *= n;
-			numerator = numerator.multiply(BigInteger.valueOf(n));
-			return this;
-		}
-
-		Fraction reverse() {
-			BigInteger t = numerator;
-			numerator = denominator;
-			denominator = t;
-			return this;
-		}
-
-		@Override
-		public String toString() {
-			return "Fraction [numerator=" + numerator + ", denominator="
-					+ denominator + "]";
-		}
-
 	}
 }

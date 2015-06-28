@@ -74,7 +74,7 @@ import java.math.BigInteger;
  * Find the sum of digits in the numerator of the 100th convergent of the continued fraction for e.
  * /**
  *
- * @author bean17.cha
+ * @author bean17.cha@gmail.com
  */
 public class Problem65 {
     final int N = 99;
@@ -118,43 +118,5 @@ public class Problem65 {
         System.out.println("c = " + c);
         System.out.println("cost time : "
                 + (System.currentTimeMillis() - start) + "ms.");
-    }
-
-    class Fraction {
-        public Fraction(BigInteger numerator, BigInteger denominator) {
-            super();
-            this.numerator = numerator;
-            this.denominator = denominator;
-        }
-
-        BigInteger numerator;
-        BigInteger denominator;
-
-        Fraction add(int n) {
-            // numerator += denominator * n;
-            numerator = numerator.add(denominator.multiply(BigInteger
-                    .valueOf(n)));
-            return this;
-        }
-
-        Fraction mutiply(int n) {
-            // numerator *= n;
-            numerator = numerator.multiply(BigInteger.valueOf(n));
-            return this;
-        }
-
-        Fraction reverse() {
-            BigInteger t = numerator;
-            numerator = denominator;
-            denominator = t;
-            return this;
-        }
-
-        @Override
-        public String toString() {
-            return "Fraction [numerator=" + numerator + ", denominator="
-                    + denominator + "]";
-        }
-
     }
 }

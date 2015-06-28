@@ -45,7 +45,7 @@ public class Problem59 {
 	private void testXORDecryption() {
 		long start = System.currentTimeMillis();
 
-		String path = "/Users/chinda/StudioProjects/projecteule2/files/Problem59.txt";
+		String path = "files/Problem59.txt";
 		File file = new File(path);
 		String all = Utils.readString(file);
 		String[] contents = all.split(",");

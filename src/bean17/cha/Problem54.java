@@ -57,7 +57,7 @@ public class Problem54 {
     private void testPokerHands() {
         long start = System.currentTimeMillis();
 
-        String path = "D:\\github\\projecteule\\files\\Problem54.txt";
+        String path = "files/Problem54.txt";
 
         int win1 = 0;
 

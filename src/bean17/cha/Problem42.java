@@ -3,6 +3,18 @@ package bean17.cha;
 import java.io.File;
 import java.util.Arrays;
 
+/**
+ * Coded triangle numbers
+ Problem 42
+ The nth term of the sequence of triangle numbers is given by, tn = ½n(n+1); so the first ten triangle numbers are:
+
+ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, ...
+
+ By converting each letter in a word to a number corresponding to its alphabetical position and adding these values we form a word value. For example, the word value for SKY is 19 + 11 + 25 = 55 = t10. If the word value is a triangle number then we shall call the word a triangle word.
+
+ Using words.txt (right click and 'Save Link/Target As...'), a 16K text file containing nearly two-thousand common English words, how many are triangle words?
+ @author bean17.cha@gmail.com
+ */
 public class Problem42 {
     /**
      * @param args arguments
@@ -15,18 +27,17 @@ public class Problem42 {
         long start = System.currentTimeMillis();
         int count = 0;
 
-        String name = "/Users/chinda/StudioProjects/projecteule/files/Problem42.txt";
+        String name = "files/Problem42.txt";
         File file = new File(name);
         String str = Utils.readString(file);
 
 
         String[] array = str.split(",");
-        for (int i = 0; i < array.length; i++) {
-            String s = array[i];
+        for (String s : array) {
             char[] cs = s.toCharArray();
             int c = 0;
-            for (int j = 0; j < cs.length; j++) {
-                c += getAlphabeticalPosition(cs[j]);
+            for (char ch : cs) {
+                c += getAlphabeticalPosition(ch);
             }
             if (isTriangle(c)) {
                 count++;

@@ -6,7 +6,7 @@ import java.math.BigInteger;
 public class Problem13 {
 
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem13().largeSum();
@@ -21,8 +21,8 @@ public class Problem13 {
 
 		BigInteger sum = BigInteger.ZERO;
 		if (null != arr && 0 != arr.length) {
-			for (int i = 0; i < arr.length; i++) {
-				sum = sum.add(new BigInteger(arr[i]));
+			for (String s : arr) {
+				sum = sum.add(new BigInteger(s));
 			}
 		}
 

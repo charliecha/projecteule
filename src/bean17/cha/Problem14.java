@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Problem14 {
 
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem14().largest();
@@ -34,10 +34,10 @@ public class Problem14 {
 	}
 	
 	/**
-	 * n ¡ú n/2 (n is even)
-     * n ¡ú 3n + 1 (n is odd)
-	 * @param n
-	 * @return
+	 * n ï¿½ï¿½ n/2 (n is even)
+     * n ï¿½ï¿½ 3n + 1 (n is odd)
+	 * @param n current value
+	 * @return length
 	 */
 	private int length(final int n, final int[] cached){
 		if (1 == n) {

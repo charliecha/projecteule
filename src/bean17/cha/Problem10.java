@@ -6,7 +6,7 @@ import java.util.List;
 public class Problem10 {
 
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		p10();
@@ -32,9 +32,9 @@ public class Problem10 {
     /**
      * compute prime factor in [start, end)
      * 
-     * @param start
-     * @param end
-     * @return
+     * @param start start
+     * @param end end
+     * @return primes
      */
     private static List<Long> primeFactor(long start, long end) {
         List<Long> primeFactorList = new ArrayList<Long>();

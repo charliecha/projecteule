@@ -8,7 +8,7 @@ import java.util.Map;
 public class Problem12 {
 
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem12().p12();
@@ -46,7 +46,7 @@ public class Problem12 {
 		List<Long> primeFactorList = cache.primeFactorList;
 		int count = 1;
 		for (int j = 0; j < primeFactorList.size(); j++) {
-			long primeFactor = primeFactorList.get(j).longValue();
+			long primeFactor = primeFactorList.get(j);
 
 			if (0 == value % primeFactor) {
 				int time = 0;
@@ -102,13 +102,13 @@ public class Problem12 {
 	/**
 	 * compute prime factor in [start, end)
 	 * 
-	 * @param start
-	 * @param end
-	 * @return
+	 * @param start start
+	 * @param end end
+	 * @return primes
 	 */
 	private static List<Long> primeFactor(long start, long end,
 			PrimeFactorCache cache) {
-		List<Long> primeFactorList = null;
+		List<Long> primeFactorList;
 
 		long primeStart;
 		if (null == cache) {
@@ -123,7 +123,7 @@ public class Problem12 {
 		for (i = primeStart; i < end; i++) {
 			boolean prime = true;
 			for (int j = 0; j < primeFactorList.size(); j++) {
-				long value = primeFactorList.get(j).longValue();
+				long value = primeFactorList.get(j);
 				long r = value * value;
 
 				if (0 == i % value) {

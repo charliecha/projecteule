@@ -36,7 +36,7 @@ import java.util.Arrays;
  */
 public class Problem59 {
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem59().testXORDecryption();
@@ -45,7 +45,7 @@ public class Problem59 {
 	private void testXORDecryption() {
 		long start = System.currentTimeMillis();
 
-		String path = "D:\\github\\projecteule\\files\\Problem59.txt";
+		String path = "/Users/chinda/StudioProjects/projecteule2/files/Problem59.txt";
 		File file = new File(path);
 		String all = Utils.readString(file);
 		String[] contents = all.split(",");
@@ -67,7 +67,7 @@ public class Problem59 {
 		char[] ckeys = new char[KLEN];
 
 		int max = 0;
-		int ascii = 0;
+		int ascii;
 		byte[] messages = null;
 
 		for (int i = 0; i < N; i++) {
@@ -79,9 +79,9 @@ public class Problem59 {
 					
 					byte[] temps = XORDecryption(ciphers, keys);
 					int c = 0;
-					for (int k = 0; k < temps.length; k++) {
-						if ((temps[k] >= bs && temps[k] <= be)
-								|| (temps[k] >= ls && temps[k] <= le)) {
+					for (byte b : temps) {
+						if ((b >= bs && b <= be)
+								|| (b >= ls && b <= le)) {
 							c++;
 						}
 					}
@@ -99,13 +99,15 @@ public class Problem59 {
 		}
 		
 		ascii = 0;
-		for (int k = 0; k < messages.length; k++) {
-			ascii += messages[k];
-		}
+		if (null != messages){
+			for (byte b : messages) {
+				ascii += b;
+			}
 
-		String message = new String(messages);
-		System.out.println(message);
-		System.out.println(Arrays.toString(ckeys));
+			String message = new String(messages);
+			System.out.println(message);
+			System.out.println(Arrays.toString(ckeys));
+		}
 
 
 		System.out.println("acsii = " + ascii);

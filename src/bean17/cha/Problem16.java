@@ -5,7 +5,7 @@ import java.math.BigInteger;
 public class Problem16 {
 
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem16().powerDigitSum();

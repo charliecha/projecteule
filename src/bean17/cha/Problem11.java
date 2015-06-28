@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Problem11 {
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem11().LargestProduct();
@@ -21,16 +21,16 @@ public class Problem11 {
 		if (null != lines && 0 != lines.length) {
 			int rowCount = lines.length;
 			String[] row = lines[0].split("\\s");
-			int colCount = 0;
-			if (null != row) {
+			int colCount;
+//			if (null != row) {
 				colCount = row.length;
-			}
+//			}
 
 			if (0 < rowCount && 0 < colCount) {
 				int[][] data = new int[rowCount][colCount];
 				for (int i = 0; i < rowCount; i++) {
 					String[] temp = lines[i].split("\\s");
-					if (null != temp && temp.length == colCount) {
+					if (/*null != temp && */ temp.length == colCount) {
 						for (int j = 0; j < colCount; j++) {
 							data[i][j] = Integer.parseInt(temp[j]);
 						}

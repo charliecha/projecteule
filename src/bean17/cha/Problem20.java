@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 public class Problem20 {
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem20().factorialDigitSum();

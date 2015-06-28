@@ -3,7 +3,7 @@ package bean17.cha;
 public class Problem15 {
 
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
@@ -20,9 +20,9 @@ public class Problem15 {
 	private long latticePaths(int row, int col, long[][] path) {
 		if (0 == row && 0 == col) {
 			return 0;
-		} else if (0 == row && col != 0) {
+		} else if (0 == row /* && col != 0 */) {
 			return 1;
-		} else if (0 != row && 0 == col) {
+		} else if (0 == col /* && 0 != row */) {
 			return 1;
 		} else {
 			if (path[row][col] > 0) {

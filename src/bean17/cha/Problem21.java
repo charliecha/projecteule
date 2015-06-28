@@ -2,7 +2,7 @@ package bean17.cha;
 
 public class Problem21 {
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem21().testAmicableNumbers();

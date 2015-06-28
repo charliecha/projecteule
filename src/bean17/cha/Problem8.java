@@ -5,7 +5,7 @@ import java.io.File;
 public class Problem8 {
 
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem8().largestProduct();
@@ -21,7 +21,7 @@ public class Problem8 {
 		
 		final int digits  = 13;
 		long max = 0;
-		long temp = 0;
+		long temp;
 		int index = 0;
 		
 		for (int i = 0; i < length - digits ; i++) {

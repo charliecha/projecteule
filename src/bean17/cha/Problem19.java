@@ -3,7 +3,7 @@ package bean17.cha;
 public class Problem19 {
 
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem19().sundays();
@@ -59,18 +59,13 @@ public class Problem19 {
 	}
 
 	private static boolean isLeap(int year) {
-		if (0 != year % 4) {
-			return false;
+		if (0 == year % 4){
+			if (0 != year % 100){
+				return true;
+			} else if (0 == year % 400){
+				return true;
+			}
 		}
-
-		if (0 != year % 100) {
-			return true;
-		}
-
-		if (0 == year % 400) {
-			return true;
-		}
-
 		return false;
 	}
 }

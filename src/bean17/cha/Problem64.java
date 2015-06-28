@@ -129,7 +129,7 @@ package bean17.cha;
 
 public class Problem64 {
 
-    final int N = 10000;
+    final int N = 10;
 
     /**
      * @param args arguments
@@ -162,13 +162,17 @@ public class Problem64 {
             a0 = (sqrt(i) + m) / d;
             a = a0;
 
+            System.out.print(i + " : " + a0 + " " );
+
             int c = 0;
             while (a != a0 << 1) {
                 m = d * a - m;
                 d = (i - m * m) / d;
                 a = (a0 + m) / d;
                 c++;
+                System.out.print(a + " ");
             }
+            System.out.println();
 
             if (0 != c % 2) {
                 odd++;

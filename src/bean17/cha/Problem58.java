@@ -10,7 +10,7 @@ package bean17.cha;
  * 
  * It is interesting to note that the odd squares lie along the bottom right
  * diagonal, but what is more interesting is that 8 out of the 13 numbers lying
- * along both diagonals are prime; that is, a ratio of 8/13 ¡Ö 62%.
+ * along both diagonals are prime; that is, a ratio of 8/13 ï¿½ï¿½ 62%.
  * 
  * If one complete new layer is wrapped around the spiral above, a square spiral
  * with side length 9 will be formed. If this process is continued, what is the
@@ -24,7 +24,7 @@ public class Problem58 {
 	double target = 0.1D;
 
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem58().testSpiralPrimes();

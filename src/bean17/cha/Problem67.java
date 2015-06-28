@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Problem67 {
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 		new Problem67().MaximumPathSum();

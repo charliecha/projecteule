@@ -193,4 +193,22 @@ public class Utils {
 		long sqrt = sqrt(i);
 		return sqrt * sqrt == i;
 	}
+
+	/**
+	 * cs is palindrome?
+	 * @param cs char array
+	 * @return true: cs is palindrome
+	 */
+	public static boolean isPalindrome(char[] cs){
+		if (null == cs || 0 == cs.length){
+			return false;
+		}
+
+		for (int i = 0; i < cs.length / 2; i++) {
+			if (cs[i] != cs[cs.length - 1 -i]){
+				return false;
+			}
+		}
+		return true;
+	}
 }

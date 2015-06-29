@@ -1,13 +1,7 @@
 package bean17.cha;
 
-import java.io.File;
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
-import bean17.cha.problem54.Card;
-import bean17.cha.problem54.HandCard;
 
 
 /**
@@ -75,7 +69,6 @@ public class Problem55 {
 
         final int c = 50;
         BigInteger sum = BigInteger.valueOf(n);
-        List<BigInteger> intermediates = new ArrayList<BigInteger>();
 
         boolean isPlindrome = false;
         int i = 0;

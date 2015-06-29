@@ -1,7 +1,6 @@
 package bean17.cha;
 
 import java.io.File;
-import java.util.Arrays;
 
 /**
  * Coded triangle numbers

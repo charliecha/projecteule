@@ -66,6 +66,7 @@ public class Problem43 {
 				+ (System.currentTimeMillis() - start) + "ms.");
 	}
 
+	@SuppressWarnings("unchecked")
 	List<Integer>[] generateSubList(List<Integer> parent) {
 		if (TEN > parent.size()) {
 			int subChilds = TEN - parent.size();

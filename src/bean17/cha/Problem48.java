@@ -1,7 +1,6 @@
 package bean17.cha;
 
 import java.math.BigInteger;
-import java.util.Arrays;
 
 public class Problem48 {
     /**

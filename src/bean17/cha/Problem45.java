@@ -12,7 +12,6 @@ public class Problem45 {
         long start = System.currentTimeMillis();
         long result = 0;
 
-        int begin = 286;
         for (int i = 286; ; i++) {
             long triangle = computeTriangle(i);
             if (isHexagonal(triangle) && isPentagonNumber(triangle)) {
@@ -35,7 +34,7 @@ public class Problem45 {
     }
 
     /**
-     * Pn=n(3n−1)/2
+     * Pn=n(3n-1)/2
      *
      * @param n
      * @return
@@ -65,7 +64,7 @@ public class Problem45 {
     }
 
     /**
-     * Hn=n(2n−1)
+     * Hn=n(2n-1)
      *
      * @param n
      * @return

@@ -51,12 +51,6 @@ public class Problem19 {
 		}
 	}
 
-	private static int days(int year) {
-		if (isLeap(year)) {
-			return 366;
-		}
-		return 365;
-	}
 
 	private static boolean isLeap(int year) {
 		if (0 == year % 4){

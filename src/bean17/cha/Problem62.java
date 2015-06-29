@@ -30,7 +30,6 @@ public class Problem62 {
         new Problem62().testCubicPermutations();
     }
 
-    @SuppressWarnings({"unchecked"})
     private void testCubicPermutations() {
         long start = System.currentTimeMillis();
 

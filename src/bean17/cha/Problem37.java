@@ -1,6 +1,5 @@
 package bean17.cha;
 
-import java.util.Arrays;
 
 public class Problem37 {
     /**

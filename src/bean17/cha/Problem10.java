@@ -1,7 +1,5 @@
 package bean17.cha;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Summation of primes

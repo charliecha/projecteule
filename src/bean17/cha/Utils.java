@@ -6,9 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Utils {
 	/**
@@ -149,31 +152,105 @@ public class Utils {
 		return primeFactorList;
 	}
 
-	/**
-	 * compute [prime factor, time] set of value
-	 *
-	 * @param value value
-	 * @return set of [prime factor, time]
-	 */
-	public static Map<Long, Integer> primeFactor(long value) {
-		Map<Long, Integer> map = new HashMap<Long, Integer>();
-		List<Long> set = primeFactor(2, value);
-		long v = value;
-		while (1 != v) {
-			for (Long long1 : set) {
-				if (0 == v % long1) {
-					v = v / long1;
-					if (map.containsKey(long1)) {
-						map.put(long1, map.get(long1) + 1);
-					} else {
-						map.put(long1, 1);
-					}
-					break;
-				}
-			}
-		}
-		return map;
-	}
+    /**
+     * compute [prime factor, time] set of value
+     *
+     * @param value value
+     * @return set of [prime factor, time]
+     */
+    public static Map<Long, Integer> primeFactor(final long value) {
+        final long sqrt = Utils.sqrt(value);
+        List<Long> lessThanSqrt = Utils.primeFactor(2, sqrt);
+        
+        Map<Long, Integer> map = new HashMap<Long, Integer>();
+        long v = value;
+        boolean fail = false;
+        while (1 != v && !fail) {
+            fail = true;
+            for (Long prime : lessThanSqrt) {
+                while (0 == v % prime) {
+                    v = v / prime;
+                    if (map.containsKey(prime)) {
+                        map.put(prime, map.get(prime) + 1);
+                    } else {
+                        map.put(prime, 1);
+                    }
+                    fail = false;
+                }
+            }
+        }
+        if (1 != v) {
+            map.put(v, 1);
+        }
+        return map;
+    }
+    
+    /**
+     * compute [prime factor, time] set of value
+     * 
+     * @param value value
+     * @return set of [prime factor, time]
+     */
+    public static Map<Long, Integer> primeFactor(long value, List<Long> primeList) {
+        Map<Long, Integer> map = new HashMap<Long, Integer>();
+        long v = value;
+        boolean fail = false;
+        final long sqrt = Utils.sqrt(value);
+
+        while (1 != v && !fail) {
+            fail = true;
+            for (int i = 0; i < primeList.size(); i++) {
+                long prime = primeList.get(i);
+                if (prime > sqrt) {
+                    break;
+                }
+
+                while (0 == v % prime) {
+                    v = v / prime;
+                    if (map.containsKey(prime)) {
+                        map.put(prime, map.get(prime) + 1);
+                    } else {
+                        map.put(prime, 1);
+                    }
+                    fail = false;
+                }
+            }
+        }
+        if (1 != v) {
+            map.put(v, 1);
+        }
+        return map;
+    }
+
+    public static Set<Long> primeFactorSet(long value, List<Long> primeList) {
+        Set<Long> set = new HashSet<Long>();
+        long v = value;
+        boolean fail = false;
+        final long sqrt = Utils.sqrt(value);
+
+        while (1 != v && !fail) {
+            fail = true;
+            for (int i = 0; i < primeList.size(); i++) {
+                long prime = primeList.get(i);
+                if (prime > sqrt) {
+                    break;
+                }
+
+                if (0 == v % prime) {
+                    set.add(prime);
+                    fail = false;
+
+                    while (0 == v % prime) {
+                        v = v / prime;
+                    }
+                }
+            }
+        }
+        if (1 != v) {
+            set.add(v);
+        }
+        return set;
+    }
 
 	/**
 	 * sqrt of i
@@ -211,4 +288,13 @@ public class Utils {
 		}
 		return true;
 	}
+	
+    public static String toString(Collection<?> set) {
+        StringBuilder builder = new StringBuilder();
+        for (Object key : set) {
+            builder.append(" | ").append(key);
+        }
+        builder.append("\n");
+        return builder.toString();
+    }
 }

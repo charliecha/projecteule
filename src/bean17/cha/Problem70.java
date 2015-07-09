@@ -1,44 +1,39 @@
 package bean17.cha;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
 /**
- * Totient maximum Problem 69 Euler's Totient function, φ(n) [sometimes called the phi function], is used to determine
- * the number of numbers less than n which are relatively prime to n. For example, as 1, 2, 4, 5, 7, and 8, are all less
- * than nine and relatively prime to nine, φ(9)=6.
- * 
- * n Relatively Prime φ(n) n/φ(n) 2 1 1 2 3 1,2 2 1.5 4 1,3 2 2 5 1,2,3,4 4 1.25 6 1,5 2 3 7 1,2,3,4,5,6 6 1.1666... 8
- * 1,3,5,7 4 2 9 1,2,4,5,7,8 6 1.5 10 1,3,7,9 4 2.5 It can be seen that n=6 produces a maximum n/φ(n) for n ≤ 10.
- * 
- * Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum. 
+Totient permutation
+Problem 70
+Euler's Totient function, φ(n) [sometimes called the phi function], is used to determine the number of positive numbers less than or equal to n which are relatively prime to n. For example, as 1, 2, 4, 5, 7, and 8, are all less than nine and relatively prime to nine, φ(9)=6.
+The number 1 is considered to be relatively prime to every positive number, so φ(1)=1.
+Interestingly, φ(87109)=79180, and it can be seen that 87109 is a permutation of 79180.
+Find the value of n, 1 < n < 107, for which φ(n) is a permutation of n and the ratio n/φ(n) produces a minimum.
  * /**
  * @author bean17.cha@gmail.com
  */
-public class Problem69 {
-    final int N = 1000000;
+public class Problem70 {
+    final int N = 10000000;
     final int[] relativelyPrimes = new int[N + 1];
 
     /**
      * @param args arguments
      */
     public static void main(String[] args) {
-        new Problem69().totientMaximum();
+        new Problem70().totientMaximum();
     }
 
-    /**
-     * http://mathworld.wolfram.com/TotientFunction.html
-     * http://www.kylen314.com/archives/4943
-     */
     private void totientMaximum() {
         long start = System.currentTimeMillis();
 
         final long sqrt = Utils.sqrt(N);
         List<Long> lessThanSqrt = Utils.primeFactor(2, sqrt);
 
-        float max = 0F;
+        float min = Float.MAX_VALUE;
         int n = 0;
         float f;
 
@@ -50,15 +45,16 @@ public class Problem69 {
             Collections.sort(list);
 
             int primes = relativelyPrime(list, i);
-
-            f = 1F * i / primes;
-            if (Float.compare(f, max) > 0) {
-                max = f;
-                n = i;
+            if (isPermutation(i, primes)) {
+                f = 1F * i / primes;
+                if (Float.compare(f, min) < 0) {
+                    min = f;
+                    n = i;
+                }
             }
         }
 
-        System.out.println("n = " + n + " , max = " + max);
+        System.out.println("n = " + n + " , min = " + min);
         System.out.println("cost time : " + (System.currentTimeMillis() - start) + "ms.");
     }
 
@@ -99,5 +95,22 @@ public class Problem69 {
             relativelyPrimes[n1] = n1 - 1 - composite;
         }
         return relativelyPrimes[n1];
+    }
+    
+    boolean isPermutation(long n1, long n2){
+        char[] cs1 = Long.valueOf(n1).toString().toCharArray();
+        char[] cs2 = Long.valueOf(n2).toString().toCharArray();
+        if (cs1.length != cs2.length) {
+            return false;
+        }
+        
+        Arrays.sort(cs1);
+        Arrays.sort(cs2);
+        for (int i = 0; i < cs2.length; i++) {
+            if (cs1[i] != cs2[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 }

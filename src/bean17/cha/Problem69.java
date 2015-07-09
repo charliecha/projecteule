@@ -1,7 +1,7 @@
 package bean17.cha;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -9,12 +9,13 @@ import java.util.Set;
  * Totient maximum Problem 69 Euler's Totient function, φ(n) [sometimes called the phi function], is used to determine
  * the number of numbers less than n which are relatively prime to n. For example, as 1, 2, 4, 5, 7, and 8, are all less
  * than nine and relatively prime to nine, φ(9)=6.
- * 
+ * <p/>
  * n Relatively Prime φ(n) n/φ(n) 2 1 1 2 3 1,2 2 1.5 4 1,3 2 2 5 1,2,3,4 4 1.25 6 1,5 2 3 7 1,2,3,4,5,6 6 1.1666... 8
  * 1,3,5,7 4 2 9 1,2,4,5,7,8 6 1.5 10 1,3,7,9 4 2.5 It can be seen that n=6 produces a maximum n/φ(n) for n ≤ 10.
- * 
- * Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum. 
+ * <p/>
+ * Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum.
  * /**
+ *
  * @author bean17.cha@gmail.com
  */
 public class Problem69 {
@@ -43,23 +44,33 @@ public class Problem69 {
         float f;
 
         for (int i = 2; i <= N; i++) {
-            Set<Long> setI = Utils.primeFactorSet(i, lessThanSqrt);
-//            System.out.println("i = " + i + " " + Utils.toString(setI));
+            Set<Long> set = Utils.primeFactorSet(i, lessThanSqrt);
+//            System.out.println("i = " + i + " " + Utils.toString(set));
 
-            List<Long> list = new ArrayList<Long>(setI);
-            Collections.sort(list);
+//            List<Long> list = new ArrayList<Long>(set);
+//            Collections.sort(list);
+//            int primes = relativelyPrime(list, i);
+//            f = 1F * i / primes;
 
-            int primes = relativelyPrime(list, i);
+            f = nDivideRelativelyPrime(set);
 
-            f = 1F * i / primes;
             if (Float.compare(f, max) > 0) {
                 max = f;
                 n = i;
+//                System.out.println("primes = " + Utils.toString(set));
             }
         }
 
         System.out.println("n = " + n + " , max = " + max);
         System.out.println("cost time : " + (System.currentTimeMillis() - start) + "ms.");
+    }
+
+    float nDivideRelativelyPrime(Collection<Long> list) {
+        float f = 1F;
+        for (Long l : list) {
+            f *= (1F * l / (l - 1));
+        }
+        return f;
     }
 
     int relativelyPrime(List<Long> list, int n1) {

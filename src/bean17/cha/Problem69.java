@@ -66,6 +66,7 @@ public class Problem69 {
         System.out.println("cost time : " + (System.currentTimeMillis() - start) + "ms.");
     }
 
+    //formula
     float nDivideRelativelyPrime(Collection<Long> list) {
         float f = 1F;
         for (Long l : list) {
@@ -74,6 +75,7 @@ public class Problem69 {
         return f;
     }
 
+    // recursive computation
     int relativelyPrime(List<Long> list, int n1) {
         if (1 == list.size()) {
             long prime = list.get(0);

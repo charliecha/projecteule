@@ -2,6 +2,7 @@ package bean17.cha;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -47,12 +48,12 @@ public class Problem69 {
             Set<Long> set = Utils.primeFactorSet(i, lessThanSqrt);
 //            System.out.println("i = " + i + " " + Utils.toString(set));
 
-//            List<Long> list = new ArrayList<Long>(set);
-//            Collections.sort(list);
-//            int primes = relativelyPrime(list, i);
-//            f = 1F * i / primes;
+            List<Long> list = new ArrayList<Long>(set);
+            Collections.sort(list);
+            int primes = relativelyPrime(list, i);
+            f = 1F * i / primes;
 
-            f = nDivideRelativelyPrime(set);
+//            f = nDivideRelativelyPrime(set);
 
             if (Float.compare(f, max) > 0) {
                 max = f;
@@ -76,38 +77,23 @@ public class Problem69 {
     int relativelyPrime(List<Long> list, int n1) {
         if (1 == list.size()) {
             long prime = list.get(0);
-            long e = (n1 - 1) / prime * prime;
-
-            int composite = (int) (e / prime);
-            relativelyPrimes[n1] = n1 - 1 - composite;
+            int composite = (int) (n1 / prime);
+            relativelyPrimes[n1] = n1 - composite;
         } else {
             List<Long> copied = new ArrayList<Long>(list);
             copied.remove(copied.size() - 1);
-
-            int composite = n1 - 1 - relativelyPrime(copied, n1);
+            
+            int composite = n1 - relativelyPrime(copied, n1);
+            
             int step = 1;
             for (Long l : copied) {
                 step *= l;
             }
-
+            
             long prime = list.get(list.size() - 1);
             long product = prime * step;
-            long e = (n1 - 1) / product * product;
-            composite += e / product * relativelyPrimes[step];
-
-            for (long j = e + prime; j < n1; j += prime) {
-                boolean isTotient = true;
-                for (int k = 0; k < copied.size(); k++) {
-                    if (0 == j % copied.get(k)) {
-                        isTotient = false;
-                        break;
-                    }
-                }
-                if (isTotient) {
-                    composite++;
-                }
-            }
-            relativelyPrimes[n1] = n1 - 1 - composite;
+            composite += n1 / product * relativelyPrimes[step];
+            relativelyPrimes[n1] = n1 - composite;
         }
         return relativelyPrimes[n1];
     }

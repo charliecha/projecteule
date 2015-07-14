@@ -14,143 +14,147 @@ import java.util.Map;
 import java.util.Set;
 
 public class Utils {
-	/**
-	 * read whole file
-	 * @param file file
-	 * @return file content
-	 */
-	public static String readString(File file) {
-		StringBuilder builder = new StringBuilder();
-		BufferedReader reader = null;
-		try {
-			reader = new BufferedReader(new FileReader(file));
-			String line;
-			while (null != (line = reader.readLine())) {
-				builder.append(line.trim());
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (null != reader) {
-				try {
-					reader.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return builder.toString();
-	}
+    /**
+     * read whole file
+     *
+     * @param file file
+     * @return file content
+     */
+    public static String readString(File file) {
+        StringBuilder builder = new StringBuilder();
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String line;
+            while (null != (line = reader.readLine())) {
+                builder.append(line.trim());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (null != reader) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return builder.toString();
+    }
 
-	/**
-	 * read lines
-	 * @param file file
-	 * @return contents
-	 */
-	public static String[] readStringArray(File file) {
-		List<String> list = new ArrayList<String>();
-		BufferedReader reader = null;
-		try {
-			reader = new BufferedReader(new FileReader(file));
-			String line;
-			while (null != (line = reader.readLine())) {
-				list.add(line.trim());
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (null != reader) {
-				try {
-					reader.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
+    /**
+     * read lines
+     *
+     * @param file file
+     * @return contents
+     */
+    public static String[] readStringArray(File file) {
+        List<String> list = new ArrayList<String>();
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String line;
+            while (null != (line = reader.readLine())) {
+                list.add(line.trim());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (null != reader) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
-		final int size = list.size();
-		String[] array = new String[size];
-		for (int i = 0; i < size; i++) {
-			array[i] = list.get(i);
-		}
-		return array;
-	}
-	
-	/**
-	 * is n prime?
-	 * @param n int value
-	 * @return is prime?
-	 */
-	public static boolean isPrime(long n) {
-		if (2 > n) {
-			return false;
-		}
-		
-		boolean isPrime = true;
-		for (int i = 2; i * i <= n; i++) {
-			if (0 == n % i) {
-				isPrime = false;
-				break;
-			}
-		}
-		return isPrime;
-	}
+        final int size = list.size();
+        String[] array = new String[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = list.get(i);
+        }
+        return array;
+    }
 
-	/**
-	 * next prime after current
-	 * @param current current value
-	 * @return next prime
-	 */
-	public static long nextPrime(long current) {
-		long next = current + 1;
-		while (!Utils.isPrime(next)) {
-			next++;
-		}
-		return next;
-	}
+    /**
+     * is n prime?
+     *
+     * @param n int value
+     * @return is prime?
+     */
+    public static boolean isPrime(long n) {
+        if (2 > n) {
+            return false;
+        }
 
-	/**
-	 * compute prime factor in [start, end)
-	 *
-	 * @param start start
-	 * @param end end
-	 * @return list of primes
-	 */
-	public static List<Long> primeFactor(long start, long end) {
-		List<Long> primeFactorList = new ArrayList<Long>();
-		for (long i = 2; i <= end; i++) {
-			boolean prime = true;
-			for (int j = 0; j < primeFactorList.size(); j++) {
-				long value = primeFactorList.get(j);
-				long sqrt = sqrt(i);
-				if (0 == i % value) {
-					prime = false;
-					break;
-				} else if (value > sqrt) {
-					break;
-				}
-			}
+        boolean isPrime = true;
+        for (int i = 2; i * i <= n; i++) {
+            if (0 == n % i) {
+                isPrime = false;
+                break;
+            }
+        }
+        return isPrime;
+    }
 
-			if (prime) {
-				primeFactorList.add(i);
-			}
+    /**
+     * next prime after current
+     *
+     * @param current current value
+     * @return next prime
+     */
+    public static long nextPrime(long current) {
+        long next = current + 1;
+        while (!Utils.isPrime(next)) {
+            next++;
+        }
+        return next;
+    }
 
-			if (0 != i % 2) {
-				i++;
-			}
-		}
+    /**
+     * compute prime factor in [start, end)
+     *
+     * @param start start
+     * @param end   end
+     * @return list of primes
+     */
+    public static List<Long> primeFactor(long start, long end) {
+        List<Long> primeFactorList = new ArrayList<Long>();
+        for (long i = 2; i <= end; i++) {
+            boolean prime = true;
+            for (int j = 0; j < primeFactorList.size(); j++) {
+                long value = primeFactorList.get(j);
+                long sqrt = sqrt(i);
+                if (0 == i % value) {
+                    prime = false;
+                    break;
+                } else if (value > sqrt) {
+                    break;
+                }
+            }
 
-		if (start > 2) {
-			for (int i = primeFactorList.size() - 1; i >= 0; i--) {
-				primeFactorList.remove(i);
-			}
-		}
-		return primeFactorList;
-	}
+            if (prime) {
+                primeFactorList.add(i);
+            }
+
+            if (0 != i % 2) {
+                i++;
+            }
+        }
+
+        if (start > 2) {
+            for (int i = primeFactorList.size() - 1; i >= 0; i--) {
+                primeFactorList.remove(i);
+            }
+        }
+        return primeFactorList;
+    }
 
     /**
      * compute [prime factor, time] set of value
@@ -161,7 +165,7 @@ public class Utils {
     public static Map<Long, Integer> primeFactor(final long value) {
         final long sqrt = Utils.sqrt(value);
         List<Long> lessThanSqrt = Utils.primeFactor(2, sqrt);
-        
+
         Map<Long, Integer> map = new HashMap<Long, Integer>();
         long v = value;
         boolean fail = false;
@@ -184,10 +188,10 @@ public class Utils {
         }
         return map;
     }
-    
+
     /**
      * compute [prime factor, time] set of value
-     * 
+     *
      * @param value value
      * @return set of [prime factor, time]
      */
@@ -252,43 +256,46 @@ public class Utils {
         return set;
     }
 
-	/**
-	 * sqrt of i
-	 * @param i current value
-	 * @return sqrt of i
-	 */
-	public static long sqrt(long i) {
-		return (long) Math.sqrt(i + 0.1);
-	}
+    /**
+     * sqrt of i
+     *
+     * @param i current value
+     * @return sqrt of i
+     */
+    public static long sqrt(long i) {
+        return (long) Math.sqrt(i + 0.1);
+    }
 
-	/**
-	 * is i a square?
-	 * @param i current value
-	 * @return true: i is a square
-	 */
-	public static boolean isSqrt(long i) {
-		long sqrt = sqrt(i);
-		return sqrt * sqrt == i;
-	}
+    /**
+     * is i a square?
+     *
+     * @param i current value
+     * @return true: i is a square
+     */
+    public static boolean isSqrt(long i) {
+        long sqrt = sqrt(i);
+        return sqrt * sqrt == i;
+    }
 
-	/**
-	 * cs is palindrome?
-	 * @param cs char array
-	 * @return true: cs is palindrome
-	 */
-	public static boolean isPalindrome(char[] cs){
-		if (null == cs || 0 == cs.length){
-			return false;
-		}
+    /**
+     * cs is palindrome?
+     *
+     * @param cs char array
+     * @return true: cs is palindrome
+     */
+    public static boolean isPalindrome(char[] cs) {
+        if (null == cs || 0 == cs.length) {
+            return false;
+        }
 
-		for (int i = 0; i < cs.length / 2; i++) {
-			if (cs[i] != cs[cs.length - 1 -i]){
-				return false;
-			}
-		}
-		return true;
-	}
-	
+        for (int i = 0; i < cs.length / 2; i++) {
+            if (cs[i] != cs[cs.length - 1 - i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static String toString(Collection<?> set) {
         StringBuilder builder = new StringBuilder();
         for (Object key : set) {
@@ -296,5 +303,21 @@ public class Utils {
         }
         builder.append("\n");
         return builder.toString();
+    }
+
+    public static long gcd(long n, long d) {
+        long m = d % n;
+        if (m == 0) {
+            return n;
+        }
+        if (m == 1) {
+            return 1;
+        }
+        while (m != 0) {
+            d = n;
+            n = m;
+            m = d % n;
+        }
+        return n;
     }
 }

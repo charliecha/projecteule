@@ -320,4 +320,39 @@ public class Utils {
         }
         return n;
     }
+
+    /**
+     * factorial of 1 * ... * n
+     * @param n number
+     * @return factorial
+     */
+    public static long factorial(final int n){
+        if (1 > n){
+            return 1;
+        }
+        int f = 1;
+        for (int i = 2; i <= n; i++) {
+            f *= n;
+        }
+        return f;
+    }
+
+    /**
+     * is set1 && set2 intersect ?
+     * @param set1 set1
+     * @param set2 set2
+     * @return intersect
+     */
+    public static boolean intersect(Set<?> set1, Set<?>set2){
+        if (null == set1 || null == set2){
+            return false;
+        }
+
+        for (Object o : set1){
+            if (set2.contains(o)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

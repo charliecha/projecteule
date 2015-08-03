@@ -32,11 +32,10 @@ import java.util.Map;
  * @author bean17.cha@gmail.com
  */
 public class Problem74 {
-//    final int N = 258280326;
-//    final int[] digitFactorialChains = new int[N + 1];
     final int Max = 1000000;
     final int Target = 60;
     final Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+
     /**
      * @param args arguments
      */
@@ -48,8 +47,9 @@ public class Problem74 {
         long start = System.currentTimeMillis();
         int c = 0;
 
-        for (int i = 0; i <= Max ; i++) {
-            if (digitFactorialChains(i) >= Target){
+        for (int i = 0; i < Max; i++) {
+//            System.out.println(i + " : " + digitFactorialChains(i));
+            if (digitFactorialChains(i) == Target) {
                 c++;
             }
         }
@@ -59,41 +59,32 @@ public class Problem74 {
                 + (System.currentTimeMillis() - start) + "ms.");
     }
 
-    int digitFactorialChains(int n){
-//        if (0 != digitFactorialChains[n]){
-//            return digitFactorialChains[n];
-//        }
-        if (map.containsKey(n)){
+    int digitFactorialChains(int n) {
+        if (map.containsKey(n)) {
             return map.get(n);
         }
 
         int c = 0;
         int v = n;
         List<Integer> list = new ArrayList<Integer>();
-        while (!list.contains(v)){
+        while (!list.contains(v)) {
             list.add(v);
             c++;
 
             int temp = v;
             v = 0;
-            while (0 != temp / 10){
+            while (0 != temp / 10) {
                 v += Utils.factorial(temp % 10);
                 temp /= 10;
             }
             v += Utils.factorial(temp);
-//            if (0 != digitFactorialChains[v]){
-//                c += digitFactorialChains[v];
-//                break;
-//            }
-            if (map.containsKey(v)){
+            if (map.containsKey(v)) {
                 c += map.get(v);
                 break;
             }
         }
 
-//        digitFactorialChains[n] = c;
-        map.put(n,c);
+        map.put(n, c);
         return c;
     }
-
 }

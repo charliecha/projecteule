@@ -355,4 +355,38 @@ public class Utils {
         }
         return false;
     }
+
+    /**
+     * 因数
+     * @param map factor map
+     * @return 因数
+     */
+    public static Set<Long> factors(Map<Long, Integer> map){
+        Set<Long> set = new HashSet<Long>();
+        Set<Long> keys = map.keySet();
+        for (Long key : keys){
+            int exponent = map.get(key);
+            long v = 1;
+            Set<Long> set2 = new HashSet<Long>();
+            set2.add(v);
+            for (int i = 0; i < exponent; i++) {
+                v *= key;
+                set2.add(v);
+            }
+            if (set.isEmpty()){
+                set.addAll(set2);
+            } else {
+                Set<Long> set3 = new HashSet<Long>();
+                for (Long l : set2){
+                    if (1 != l){
+                        for (Long s : set){
+                            set3.add(s * l);
+                        }
+                    }
+                }
+                set.addAll(set3);
+            }
+        }
+        return set;
+    }
 }
